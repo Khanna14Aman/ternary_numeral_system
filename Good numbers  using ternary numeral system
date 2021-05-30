@@ -1,0 +1,41 @@
+//https://codeforces.com/contest/1249/problem/C1
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        int flag;
+        while(1)
+        {
+            flag=0;
+            int no = n;
+            while(no>=1)
+            {
+                if(no%3==2)
+                {
+                    flag=1;
+                }
+                no /= 3;
+            }
+            if(flag==0)
+            {
+                break;
+            }
+            ++n;
+        }
+        cout<<n<<"\n";
+    }
+    return 0;
+}
+
+// when you find ternary of any number we get value of remainder in 0, 1, 2  so for 0 means 0 times 3^something and 1 means 1 times 3^something and 2 means 2 times 3^something 
+//so in question we need to avoid to use 2 times 3^something so we write this code.
+//example n=45 so ternary will be 1 2 0 0  so this is not a good number as if we convert this in decimal form we have to write (0*3^0)+(0*3^1)+(2*3^2)+(1*3^3)///so this is not good 
+// number as we take 2 times 3^2.
+// let n= 13 so ternary will be 1 1 1 so it will be (1*3^0)+(1*3^1)+(1*3^2).hence it is a good number
